@@ -26,11 +26,9 @@ def get_cfd100url():
             return None
         except RequestException:
             return None
-    text = get_page(APIurl)
-    text1 = json.loads(text)
-    text2 = text1['data']
-    cfd100url = text2['result']
+    cfd100url = ((json.loads(get_page(APIurl)))['data'])['result']
     return cfd100url
+
 # 默认配置(看不懂代码也勿动)
 cfd_start_time = -0.15
 cfd_offset_time = 0.01
